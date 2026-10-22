@@ -1,0 +1,44 @@
+name: Build & Release Win11 Taskbar Mod
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Compile mod
+        run: |
+          cl.exe /nologo /D_WIN32_WINNT=0x0601 /W3 /O2 ^
+            win10-to-win11-taskbar.wh.cpp ^
+            /link dwmapi.lib uxtheme.lib gdiplus.lib ole32.lib oleaut32.lib ^
+            /OUT:win10-to-win11-taskbar.exe
+
+      - name: Create release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            win10-to-win11-taskbar.exe
+            mod.json
+            README.md
+            taskbar-utils.h
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload to Windhawk
+        run: |
+          echo "Submission to Windhawk mod repository"
+          echo "Manual upload at https://windhawk.net/submit"
