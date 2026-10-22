@@ -1,0 +1,118 @@
+{
+  "$schema": "https://windhawk.net/schemas/mod/1.0.json",
+  "id": "win10-win11-taskbar",
+  "name": "Windows 11 Taskbar for Windows 10",
+  "description": "Restyle Windows 10 taskbar to match Windows 11 design. Features centered icons, modern UI, blur effect, search integration, and Windows 11 visual polish.",
+  "author": "MOLYN DEVELOPMENT",
+  "version": "1.0.0",
+  "minVersion": "1.3.0",
+  "homepage": "https://github.com/Lakany/win10-win11-taskbar",
+  "license": "MIT",
+  "compilerOptions": "-lwinmm -lole32 -loleaut32 -luuid -lgdiplus -ldwmapi -luxtheme",
+  "include": [
+    "explorer.exe"
+  ],
+  "settingsVersion": 1,
+  "settings": [
+    {
+      "id": "centerIcons",
+      "name": "Center taskbar icons",
+      "description": "Position taskbar icons in the center (Windows 11 style) instead of left-aligned",
+      "type": "checkbox",
+      "defaultValue": true
+    },
+    {
+      "id": "modernSpacing",
+      "name": "Modern icon spacing",
+      "description": "Apply larger padding and spacing between icons for modern look",
+      "type": "checkbox",
+      "defaultValue": true
+    },
+    {
+      "id": "roundedCorners",
+      "name": "Rounded corners",
+      "description": "Enable rounded corners on taskbar and icon buttons",
+      "type": "checkbox",
+      "defaultValue": true
+    },
+    {
+      "id": "blurEffect",
+      "name": "Blur/Glass effect",
+      "description": "Enable Aero blur effect behind taskbar (Mica-like appearance)",
+      "type": "checkbox",
+      "defaultValue": true
+    },
+    {
+      "id": "darkMode",
+      "name": "Dark mode",
+      "description": "Use dark theme colors (requires Windows 10 dark mode enabled)",
+      "type": "checkbox",
+      "defaultValue": true
+    },
+    {
+      "id": "cornerRadius",
+      "name": "Corner radius (px)",
+      "description": "Radius of rounded corners in pixels",
+      "type": "number",
+      "defaultValue": 8,
+      "min": 0,
+      "max": 20,
+      "step": 1
+    },
+    {
+      "id": "iconSize",
+      "name": "Icon size (px)",
+      "description": "Size of taskbar icons",
+      "type": "number",
+      "defaultValue": 48,
+      "min": 32,
+      "max": 64,
+      "step": 2
+    },
+    {
+      "id": "taskbarHeight",
+      "name": "Taskbar height (px)",
+      "description": "Height of the taskbar",
+      "type": "number",
+      "defaultValue": 48,
+      "min": 32,
+      "max": 80,
+      "step": 2
+    },
+    {
+      "id": "bgColor",
+      "name": "Background color",
+      "description": "Taskbar background color (hex: #RRGGBB)",
+      "type": "string",
+      "defaultValue": "#1E1E1E"
+    },
+    {
+      "id": "accentColor",
+      "name": "Accent color",
+      "description": "Accent color for highlights and active items (hex: #RRGGBB)",
+      "type": "string",
+      "defaultValue": "#0078D4"
+    },
+    {
+      "id": "enableWidgets",
+      "name": "Show widgets button",
+      "description": "Add Windows 11-style widgets button to taskbar",
+      "type": "checkbox",
+      "defaultValue": true
+    },
+    {
+      "id": "enableSearch",
+      "name": "Show integrated search",
+      "description": "Add modern search box to taskbar",
+      "type": "checkbox",
+      "defaultValue": true
+    },
+    {
+      "id": "smoothAnimations",
+      "name": "Smooth animations",
+      "description": "Enable smooth transitions for hover/click effects",
+      "type": "checkbox",
+      "defaultValue": true
+    }
+  ]
+}
